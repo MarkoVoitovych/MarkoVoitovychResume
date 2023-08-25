@@ -9,6 +9,18 @@
     --borderColor: #ae7e5e;
 }
 
+@font-face {
+    font-family: ClearSans-Bold;
+    src: url(./assets/fonts/ClearSans-Bold.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: ClearSans-Regular;
+    src: url(./assets/fonts/ClearSans-Regular.ttf);
+    font-weight: normal;
+}
+
 /* ------------------- GENERAL STYLES --------------------- */
 
 * {
@@ -20,7 +32,7 @@ body {
     padding: 0;
     background-color: var(--backgroundPrimary);
     color: var(--textPrimary);
-    font-family: Roboto, sans-serif;
+    font-family: ClearSans-Regular, sans-serif;
     font-size: 14px;
     font-weight: 400;
     letter-spacing: 0.03em;
