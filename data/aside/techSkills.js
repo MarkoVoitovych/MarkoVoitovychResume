@@ -1,4 +1,4 @@
-[
+export default [
   "HTML5/CSS3/SASS",
   "JavaScript/Typescript",
   "React",
@@ -10,5 +10,5 @@
   "MongoDB",
   "PostgreSQL",
   "Docker",
-  "Git"
-]
+  "Git",
+];
