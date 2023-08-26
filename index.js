@@ -31,6 +31,7 @@ function createElement(e) {
 }
 
 function createAsideLink(elem) {
+  const item = createElement({ tagName: "li" });
   const asideLink = createElement({
     tagName: "a",
     className: "aside__link",
@@ -41,13 +42,16 @@ function createAsideLink(elem) {
     },
   });
   asideLink.textContent = elem.text;
-  return asideLink;
+  item.append(asideLink);
+  return item;
 }
 
 function createAsideText(elem) {
+  const item = createElement({ tagName: "li" });
   const asideText = createElement({ tagName: "p", className: "aside__text" });
   asideText.textContent = elem.text;
-  return asideText;
+  item.append(asideText);
+  return item;
 }
 
 function startApp() {

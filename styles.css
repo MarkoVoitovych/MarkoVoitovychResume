@@ -52,7 +52,6 @@ ol,
 li {
     padding: 0;
     margin: 0;
-    list-style: none;
 }
 
 a {
@@ -110,6 +109,7 @@ video {
     font-family: Lato;
     font-weight: bold;
     font-size: 64px;
+    color: var(--textSecondary);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -121,6 +121,7 @@ video {
     flex-grow: 1;
     font-weight: normal;
     font-size: 36px;
+    color: var(--textSecondary);
     text-transform: uppercase;
     display: flex;
     justify-content: center;
@@ -155,6 +156,16 @@ video {
 .aside__list {
     display: flex;
     flex-direction: column;
+}
+
+#contacts {
+    list-style: none;
+}
+
+#tech-skills,
+#soft-skills,
+#languages {
+    list-style: circle;
 }
 
 .aside__link {
