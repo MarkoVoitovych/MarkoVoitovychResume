@@ -76,6 +76,10 @@ video {
     max-width: 1200px;
 }
 
+.accent {
+    color: var(--textTertialy)
+}
+
 /* ------------------- HEADER STYLES --------------------- */
 
 .header .container {
@@ -200,4 +204,27 @@ video {
     font-family: ClearSans-Bold;
     font-size: 30px;
     margin-bottom: 20px;
+}
+
+.content__text {
+    font-size: 22px;
+    line-height: 1.25;
+    font-family: ClearSans-Regular;
+}
+
+.content__link {
+    font-family: ClearSans-Bold;
+    font-size: 22px;
+    line-height: 1.25;
+    text-decoration: underline;
+}
+
+.content__link:hover {
+    color: var(--textSecondary);
+}
+
+.project__wrapper {
+    font-size: 22px;
+    font-family: ClearSans-Bold;
+    margin-bottom: 10px;
 }

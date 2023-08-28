@@ -2,6 +2,10 @@ import contactsData from "./data/aside/contacts.js";
 import techSkillsData from "./data/aside/techSkills.js";
 import softSkillsData from "./data/aside/softSkills.js";
 import languagesData from "./data/aside/languages.js";
+import summaryData from "./data/main/summary.js";
+import projectExperienceData from "./data/main/projects.js";
+import workExperienceData from "./data/main/experience.js";
+import educationData from "./data/main/education.js";
 
 const contactsElement = document.getElementById("contacts");
 const techSkillsElement = document.getElementById("tech-skills");
@@ -54,6 +58,50 @@ function createAsideText(elem) {
   return item;
 }
 
+function createContentLink(elem) {
+  const contentLink = createElement({
+    tagName: "a",
+    className: elem.class ? `content__link ${elem.class}` : "content__link",
+    attributes: {
+      href: elem.link,
+      rel: "noopener nofollow noreferrer",
+      target: "_blank",
+    },
+  });
+  contentLink.textContent = elem.text;
+  return contentLink;
+}
+
+function createContentText(text) {
+  const contentText = createElement({
+    tagName: "span",
+    className: "content__text",
+  });
+  contentText.textContent = text;
+  return contentText;
+}
+
+function createProject(elem) {
+  return `<div class="project__wrapper">
+    <a href="${
+      elem.title.link
+    }" class="content__link accent" rel: "noopener nofollow noreferrer",
+      target: "_blank">${elem.title.text}</a>
+      (${elem.repositories
+        .map(
+          (
+            repo
+          ) => `<a href="${repo.link}" class="content__link" rel: "noopener nofollow noreferrer",
+      target: "_blank">${repo.text}</a>`
+        )
+        .join(", ")})
+        <p class="content__text">${elem.technologies}</p>
+        ${elem.description
+          .map((desc) => ` <p class="content__text">${desc}</p>`)
+          .join(" ")}
+    </div>`;
+}
+
 function startApp() {
   const contacts = contactsData.map((elem) => {
     if (elem.link) {
@@ -77,6 +125,13 @@ function startApp() {
     return createAsideText({ text: elem });
   });
   languagesElement.append(...languages);
+
+  summaryElement.textContent = summaryData;
+
+  const projectExperience = projectExperienceData.map((elem) => {
+    return createProject(elem);
+  });
+  projectExperienceElement.innerHTML = projectExperience.join(" ");
 }
 
 startApp();
