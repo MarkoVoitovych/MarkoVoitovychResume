@@ -74,7 +74,7 @@ function createContentLink(elem) {
 
 function createContentText(text) {
   const contentText = createElement({
-    tagName: "span",
+    tagName: "p",
     className: "content__text",
   });
   contentText.textContent = text;
@@ -82,24 +82,52 @@ function createContentText(text) {
 }
 
 function createProject(elem) {
-  return `<div class="project__wrapper">
-    <a href="${
+  return `<li class="project__wrapper">
+    <a href=${
       elem.title.link
-    }" class="content__link accent" rel: "noopener nofollow noreferrer",
-      target: "_blank">${elem.title.text}</a>
+    } class="content__link accent" rel="noopener nofollow noreferrer", target="_blank">${
+    elem.title.text
+  }</a>
       (${elem.repositories
         .map(
           (
             repo
-          ) => `<a href="${repo.link}" class="content__link" rel: "noopener nofollow noreferrer",
-      target: "_blank">${repo.text}</a>`
+          ) => `<a href="${repo.link}" class="content__link" rel="noopener nofollow noreferrer",
+      target="_blank">${repo.text}</a>`
         )
         .join(", ")})
         <p class="content__text">${elem.technologies}</p>
         ${elem.description
           .map((desc) => ` <p class="content__text">${desc}</p>`)
           .join(" ")}
-    </div>`;
+    </li>`;
+}
+
+function createPlace(elem) {
+  const workWrapper = createElement({
+    tagName: "li",
+    className: "work__wrapper",
+  });
+  const company = createContentLink(elem.company);
+  const linkWrapper = createElement({ tagName: "p" });
+  linkWrapper.append(company);
+  const position = createElement({
+    tagName: "span",
+    className: "content__text",
+  });
+  position.textContent = elem.position;
+  const divider = createElement({
+    tagName: "span",
+    className: "content__text",
+  });
+  divider.textContent = " | ";
+  const duration = createElement({
+    tagName: "span",
+    className: "content__text",
+  });
+  duration.textContent = elem.duration;
+  workWrapper.append(linkWrapper, position, divider, duration);
+  return workWrapper;
 }
 
 function startApp() {
@@ -111,27 +139,34 @@ function startApp() {
   });
   contactsElement.append(...contacts);
 
-  const techSkills = techSkillsData.map((elem) => {
-    return createAsideText({ text: elem });
-  });
+  const techSkills = techSkillsData.map((elem) =>
+    createAsideText({ text: elem })
+  );
   techSkillsElement.append(...techSkills);
 
-  const softSkills = softSkillsData.map((elem) => {
-    return createAsideText({ text: elem });
-  });
+  const softSkills = softSkillsData.map((elem) =>
+    createAsideText({ text: elem })
+  );
   softSkillsElement.append(...softSkills);
 
-  const languages = languagesData.map((elem) => {
-    return createAsideText({ text: elem });
-  });
+  const languages = languagesData.map((elem) =>
+    createAsideText({ text: elem })
+  );
   languagesElement.append(...languages);
 
-  summaryElement.textContent = summaryData;
+  const summary = summaryData.map((text) => createContentText(text));
+  summaryElement.append(...summary);
 
-  const projectExperience = projectExperienceData.map((elem) => {
-    return createProject(elem);
-  });
+  const projectExperience = projectExperienceData.map((elem) =>
+    createProject(elem)
+  );
   projectExperienceElement.innerHTML = projectExperience.join(" ");
+
+  const workExperience = workExperienceData.map((work) => createPlace(work));
+  workExperienceElement.append(...workExperience);
+
+  const education = educationData.map((camp) => createPlace(camp));
+  educationElement.append(...education);
 }
 
 startApp();

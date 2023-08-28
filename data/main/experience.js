@@ -1,18 +1,18 @@
 export default [
   {
-    position: "Logist, Head of Logistics",
     company: {
-      name: "Agrarian Fund",
+      text: "Agrarian Fund",
       link: "http://agrofond.gov.ua",
     },
+    position: "Logist, Head of Logistics",
     duration: "2015-2022",
   },
   {
-    position: "Accountant",
     company: {
-      name: "Agrarian Commodity Exchange",
+      text: "Agrarian Commodity Exchange",
       link: "https://agrex.gov.ua",
     },
+    position: "Accountant",
     duration: "2011-2015",
   },
 ];
