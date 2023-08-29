@@ -1,6 +1,6 @@
 export default [
   "HTML5/CSS3/SASS",
-  "JavaScript/Typescript",
+  "JavaScript/TypeScript",
   "React",
   "Redux",
   "React Native",
@@ -10,5 +10,4 @@ export default [
   "MongoDB",
   "PostgreSQL",
   "Docker",
-  "Git",
 ];
