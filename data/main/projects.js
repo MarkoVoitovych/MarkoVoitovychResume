@@ -57,7 +57,7 @@ export default [
     repositories: [
       {
         text: "backend",
-        link: "https://bitbucket.org/binaryhomework/3.task-websockets.git",
+        link: "https://github.com/MarkoVoitovych/bsa-hw3",
       },
     ],
     technologies: "[TypeScript, Node.js, WebSocket]",
@@ -71,7 +71,7 @@ export default [
     repositories: [
       {
         text: "frontend",
-        link: "https://bitbucket.org/binaryhomework/3.task-websockets.git",
+        link: "https://github.com/MarkoVoitovych/bsa-hw5",
       },
     ],
     technologies: "[React, Redux, TypeScript]",
